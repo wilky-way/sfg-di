@@ -1,9 +1,6 @@
 package com.wilky.sfgdi;
 
-import com.wilky.sfgdi.controllers.ConstructorInjectedController;
-import com.wilky.sfgdi.controllers.MyController;
-import com.wilky.sfgdi.controllers.PropertyInjectedController;
-import com.wilky.sfgdi.controllers.SetterInjectedController;
+import com.wilky.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,6 +11,9 @@ public class SfgDiApplication {
 	public static void main(String[] args) {
 
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 		System.out.println("----- Primary Bean");
 		MyController myController = (MyController) ctx.getBean("myController");
